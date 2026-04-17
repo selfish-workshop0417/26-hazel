@@ -18,6 +18,9 @@
 - `marketing/` — 마케팅 팀: 어떻게 알릴 것인가
 - `strategy/` — 전략 팀: 어떻게 지속 가능하게 만들 것인가
 
+## 사이트 구조
+👉 [사이트맵 보기](https://selfish-workshop0417.github.io/26-hazel/planning/sitemap.html)
+
 ## 진행 상황
 - [x] PRD 프레임 작성
 - [ ] 상세 파트 작업
