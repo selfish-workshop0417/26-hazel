@@ -200,6 +200,67 @@ body {
 }
 .hidden { display: none; }
 
+/* 로딩 */
+.loading-state {
+  text-align: center;
+  padding: 48px;
+  color: #888;
+  font-size: 14px;
+}
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #eee;
+  border-top-color: #4F46E5;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* 에러 */
+.error-state {
+  background: #FFF0F0;
+  border: 1.5px solid #ffb3b3;
+  border-radius: 10px;
+  padding: 16px;
+  color: #c0392b;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* 게시물 이미지 */
+.post-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+/* 결과 텍스트 */
+.result-text {
+  font-size: 13px;
+  color: #444;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-family: inherit;
+}
+.result-text.caption {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* 입력 힌트 */
+.input-hint {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 6px;
+}
+
 /* 태그 */
 .tag-filter {
   display: flex;

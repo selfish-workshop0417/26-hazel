@@ -47,34 +47,56 @@
     </div>
     <div class="content">
       <div class="input-section">
-        <label>인스타그램 링크를 입력하세요</label>
+        <label>인스타그램 게시물 링크를 입력하세요</label>
         <div class="input-row">
           <input type="text" id="ig-link" placeholder="https://www.instagram.com/p/..." />
           <button class="btn-primary" onclick="startAnalyze()">분석 시작</button>
         </div>
+        <p class="input-hint">게시물(p/) 또는 릴스(reel/) 링크를 지원해요</p>
       </div>
+
       <div id="analyze-result" class="result-section hidden">
-        <div class="wip-banner">🚧 분석 기능은 현재 구현 중이에요!</div>
-        <div class="result-block">
-          <h3>① 후킹포인트</h3>
-          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
+
+        <!-- 로딩 -->
+        <div id="loading-state" class="loading-state">
+          <div class="spinner"></div>
+          <p>인스타그램 데이터를 분석 중이에요...</p>
         </div>
-        <div class="result-block">
-          <h3>② 카피 분석</h3>
-          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
+
+        <!-- 에러 -->
+        <div id="error-state" class="error-state hidden"></div>
+
+        <!-- 결과 -->
+        <div id="result-content" class="hidden">
+          <img id="post-image" class="post-image" src="" alt="게시물 이미지" />
+
+          <div class="result-block">
+            <h3>① 후킹포인트</h3>
+            <pre id="result-hook" class="result-text"></pre>
+          </div>
+          <div class="result-block">
+            <h3>② 카피 분석</h3>
+            <pre id="result-copy" class="result-text"></pre>
+          </div>
+          <div class="result-block">
+            <h3>③ 원본 캡션</h3>
+            <pre id="result-caption" class="result-text caption"></pre>
+          </div>
+          <div class="result-block">
+            <h3>④ 영상 구성</h3>
+            <pre id="result-video" class="result-text"></pre>
+          </div>
+          <div class="result-block">
+            <h3>⑤ USP</h3>
+            <pre id="result-usp" class="result-text"></pre>
+          </div>
+
+          <div class="save-section">
+            <input type="text" id="tag-input" placeholder="태그 입력 (예: #릴스 #뷰티)" />
+            <button class="btn-primary" onclick="saveResult()">💾 보관함에 저장</button>
+          </div>
         </div>
-        <div class="result-block">
-          <h3>③ 영상 구성</h3>
-          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
-        </div>
-        <div class="result-block">
-          <h3>④ USP</h3>
-          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
-        </div>
-        <div class="save-section">
-          <input type="text" id="tag-input" placeholder="태그 입력 (예: #릴스 #뷰티)" />
-          <button class="btn-primary" onclick="saveResult()">💾 보관함에 저장</button>
-        </div>
+
       </div>
     </div>
   </div>
