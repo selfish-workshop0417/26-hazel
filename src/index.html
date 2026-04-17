@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>레퍼런스랩</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 네비게이션 -->
+  <nav class="nav">
+    <div class="nav-logo" onclick="goTo('home')">📚 레퍼런스랩</div>
+    <div class="nav-menu">
+      <span onclick="goTo('archive')">보관함</span>
+      <span onclick="goTo('settings')">설정</span>
+    </div>
+  </nav>
+
+  <!-- 홈 화면 -->
+  <div id="page-home" class="page active">
+    <div class="home-hero">
+      <h1>레퍼런스랩</h1>
+      <p>인스타그램 콘텐츠를 분석하고<br>핀터레스트 레퍼런스를 피그마로 수집하세요</p>
+    </div>
+    <div class="home-cards">
+      <div class="card" onclick="goTo('analyze')">
+        <div class="card-icon">📊</div>
+        <h2>레퍼런스 분석</h2>
+        <p>인스타그램 링크를 넣으면<br>후킹포인트·카피·영상구성·USP를 분석해요</p>
+        <button class="btn-primary">분석 시작하기</button>
+      </div>
+      <div class="card" onclick="goTo('collect')">
+        <div class="card-icon">📌</div>
+        <h2>레퍼런스 수집</h2>
+        <p>핀터레스트 보드를 연결하면<br>피그마로 자동으로 수집돼요</p>
+        <button class="btn-secondary">수집 설정하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 분석 화면 -->
+  <div id="page-analyze" class="page">
+    <div class="page-header">
+      <button class="btn-back" onclick="goTo('home')">← 홈으로</button>
+      <h2>📊 레퍼런스 분석</h2>
+    </div>
+    <div class="content">
+      <div class="input-section">
+        <label>인스타그램 링크를 입력하세요</label>
+        <div class="input-row">
+          <input type="text" id="ig-link" placeholder="https://www.instagram.com/p/..." />
+          <button class="btn-primary" onclick="startAnalyze()">분석 시작</button>
+        </div>
+      </div>
+      <div id="analyze-result" class="result-section hidden">
+        <div class="wip-banner">🚧 분석 기능은 현재 구현 중이에요!</div>
+        <div class="result-block">
+          <h3>① 후킹포인트</h3>
+          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
+        </div>
+        <div class="result-block">
+          <h3>② 카피 분석</h3>
+          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
+        </div>
+        <div class="result-block">
+          <h3>③ 영상 구성</h3>
+          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
+        </div>
+        <div class="result-block">
+          <h3>④ USP</h3>
+          <div class="result-placeholder">분석 결과가 여기에 표시됩니다</div>
+        </div>
+        <div class="save-section">
+          <input type="text" id="tag-input" placeholder="태그 입력 (예: #릴스 #뷰티)" />
+          <button class="btn-primary" onclick="saveResult()">💾 보관함에 저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 수집 화면 -->
+  <div id="page-collect" class="page">
+    <div class="page-header">
+      <button class="btn-back" onclick="goTo('home')">← 홈으로</button>
+      <h2>📌 레퍼런스 수집</h2>
+    </div>
+    <div class="content">
+      <div class="wip-banner">🚧 수집 기능은 현재 구현 중이에요!</div>
+      <div class="input-section">
+        <label>핀터레스트 공개 보드 URL</label>
+        <div class="input-row">
+          <input type="text" placeholder="https://www.pinterest.com/username/board-name/" />
+          <button class="btn-secondary" onclick="showWip()">연동하기</button>
+        </div>
+      </div>
+      <div class="input-section">
+        <label>피그마 API 키</label>
+        <div class="input-row">
+          <input type="password" placeholder="figd_..." />
+          <button class="btn-secondary" onclick="showWip()">저장</button>
+        </div>
+      </div>
+      <div class="sync-status">
+        <h3>연동 현황</h3>
+        <div class="empty-state">아직 연동된 보드가 없어요</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 보관함 화면 -->
+  <div id="page-archive" class="page">
+    <div class="page-header">
+      <button class="btn-back" onclick="goTo('home')">← 홈으로</button>
+      <h2>🗂 보관함</h2>
+    </div>
+    <div class="content">
+      <div class="tag-filter">
+        <span class="tag active"># 전체</span>
+        <span class="tag"># 릴스</span>
+        <span class="tag"># 뷰티</span>
+        <span class="tag"># 광고</span>
+      </div>
+      <div class="wip-banner">🚧 보관함 기능은 현재 구현 중이에요!</div>
+      <div class="archive-list">
+        <div class="archive-item">
+          <div class="archive-thumb">🖼</div>
+          <div class="archive-info">
+            <p class="archive-title">샘플 콘텐츠 1</p>
+            <p class="archive-summary">후킹포인트: 감성적인 첫 장면으로 시선 집중...</p>
+            <div class="archive-tags"><span class="tag">#릴스</span> <span class="tag">#뷰티</span></div>
+          </div>
+        </div>
+        <div class="archive-item">
+          <div class="archive-thumb">🖼</div>
+          <div class="archive-info">
+            <p class="archive-title">샘플 콘텐츠 2</p>
+            <p class="archive-summary">후킹포인트: 강렬한 카피로 첫 2초 집중...</p>
+            <div class="archive-tags"><span class="tag">#광고</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 설정 화면 -->
+  <div id="page-settings" class="page">
+    <div class="page-header">
+      <button class="btn-back" onclick="goTo('home')">← 홈으로</button>
+      <h2>⚙️ 설정</h2>
+    </div>
+    <div class="content">
+      <div class="setting-group">
+        <h3>피그마 연동</h3>
+        <label>피그마 API 키</label>
+        <div class="input-row">
+          <input type="password" placeholder="figd_..." />
+          <button class="btn-secondary" onclick="showWip()">저장</button>
+        </div>
+      </div>
+      <div class="setting-group">
+        <h3>연동된 핀터레스트 보드</h3>
+        <div class="empty-state">연동된 보드가 없어요</div>
+        <button class="btn-secondary" onclick="goTo('collect')">+ 보드 추가하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIP 토스트 -->
+  <div id="wip-toast" class="toast hidden">🚧 아직 구현 중인 기능이에요!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
