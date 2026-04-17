@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>레퍼런스랩 사이트맵</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Apple SD Gothic Neo', Arial, sans-serif;
+      background: #f0f0f5;
+      padding: 32px 16px;
+      min-width: 900px;
+      overflow-x: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 32px;
+      color: #333;
+    }
+
+    .tree {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .node {
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      min-width: 140px;
+      max-width: 160px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      line-height: 1.4;
+    }
+    .node.home {
+      background: #4F46E5;
+      color: white;
+      font-size: 15px;
+      padding: 14px 28px;
+      min-width: 180px;
+    }
+    .node.main {
+      background: white;
+      border: 2px solid #4F46E5;
+      color: #4F46E5;
+      font-size: 12px;
+      min-width: 130px;
+    }
+    .node.sub {
+      background: white;
+      border: 1.5px solid #bbb;
+      color: #444;
+      font-weight: 500;
+      font-size: 11px;
+      min-width: 120px;
+    }
+    .node.leaf {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      color: #666;
+      font-weight: 400;
+      font-size: 11px;
+      min-width: 120px;
+    }
+
+    .v-line {
+      width: 2px;
+      height: 20px;
+      background: #ccc;
+      margin: 0 auto;
+    }
+
+    /* 메인 가로 레이아웃 */
+    .main-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      position: relative;
+      width: 100%;
+    }
+
+    /* 가로선 */
+    .main-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 2px;
+      background: #ccc;
+      width: 76%;
+    }
+
+    .branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🗺 레퍼런스랩 사이트 구조</h1>
+
+<div class="tree">
+
+  <div class="node home">🏠 홈<br><span style="font-size:11px;font-weight:400;">수집 / 분석 선택</span></div>
+  <div class="v-line"></div>
+
+  <div class="main-row">
+
+    <!-- 레퍼런스 분석 -->
+    <div class="branch">
+      <div class="v-line"></div>
+      <div class="node main">📊 레퍼런스 분석</div>
+      <div class="v-line"></div>
+      <div class="node sub">인스타그램 링크 입력</div>
+      <div class="v-line"></div>
+      <div class="node sub">⏳ 분석 중 로딩</div>
+      <div class="v-line"></div>
+      <div class="node sub">분석 결과 (스크롤)</div>
+      <div class="v-line"></div>
+      <div class="node leaf">① 후킹포인트</div>
+      <div class="v-line"></div>
+      <div class="node leaf">② 카피 분석</div>
+      <div class="v-line"></div>
+      <div class="node leaf">③ 영상 구성</div>
+      <div class="v-line"></div>
+      <div class="node leaf">④ USP</div>
+      <div class="v-line"></div>
+      <div class="node leaf">💾 저장 버튼</div>
+      <div class="v-line"></div>
+      <div class="node leaf">태그 입력 (자동완성)</div>
+    </div>
+
+    <!-- 레퍼런스 수집 -->
+    <div class="branch">
+      <div class="v-line"></div>
+      <div class="node main">📌 레퍼런스 수집</div>
+      <div class="v-line"></div>
+      <div class="node sub">핀터레스트 보드 URL</div>
+      <div class="v-line"></div>
+      <div class="node sub">피그마 API 키 입력</div>
+      <div class="v-line"></div>
+      <div class="node sub">싱크 시작 버튼</div>
+      <div class="v-line"></div>
+      <div class="node sub">연동 현황</div>
+      <div class="v-line"></div>
+      <div class="node leaf">연동된 보드 목록</div>
+      <div class="v-line"></div>
+      <div class="node leaf">마지막 싱크 시간</div>
+    </div>
+
+    <!-- 보관함 -->
+    <div class="branch">
+      <div class="v-line"></div>
+      <div class="node main">🗂 보관함</div>
+      <div class="v-line"></div>
+      <div class="node sub">태그 필터 (상단)</div>
+      <div class="v-line"></div>
+      <div class="node sub">리스트 뷰</div>
+      <div class="v-line"></div>
+      <div class="node leaf">썸네일 + 분석 요약</div>
+      <div class="v-line"></div>
+      <div class="node leaf">클릭 → 분석 상세</div>
+    </div>
+
+    <!-- 설정 -->
+    <div class="branch">
+      <div class="v-line"></div>
+      <div class="node main">⚙️ 설정</div>
+      <div class="v-line"></div>
+      <div class="node leaf">피그마 API 키 관리</div>
+      <div class="v-line"></div>
+      <div class="node leaf">핀터레스트 보드 관리</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
